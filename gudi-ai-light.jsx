@@ -304,12 +304,12 @@ function ProjectCard({ project, rank, expanded, onToggle, onVote, onSupportClick
             </div>
           </div>
 
-          <button onClick={onSupportClick} style={{
-            padding: "11px 24px", borderRadius: 99, border: "none",
-            background: `linear-gradient(135deg,${C.purple},${C.teal})`,
-            color: "#fff", fontSize: 14, fontWeight: 700, cursor: "pointer", fontFamily: "inherit",
-            boxShadow: "0 4px 14px rgba(109,40,217,.25)",
-          }}>💚 Support This Project</button>
+          <a href="https://gofund.me/839bac11" target="_blank" rel="noopener noreferrer" style={{
+  padding: "11px 24px", borderRadius: 99, border: "none",
+  background: `linear-gradient(135deg,${C.purple},${C.teal})`,
+  color: "#fff", fontSize: 14, fontWeight: 700, cursor: "pointer", fontFamily: "inherit",
+  boxShadow: "0 4px 14px rgba(109,40,217,.25)", textDecoration: "none", display: "inline-block"
+}}>💚 Support This Project</a>
         </div>
       )}
     </div>
@@ -351,7 +351,7 @@ function ProjectsView({ projects, onVote, onSubmit }) {
         </p>
         <div style={{ display: "flex", gap: 10, justifyContent: "center", flexWrap: "wrap" }}>
           <button onClick={onSubmit} style={{ padding: "12px 26px", borderRadius: 99, border: "none", background: `linear-gradient(135deg,${C.purple},${C.teal})`, color: "#fff", fontSize: 14, fontWeight: 700, cursor: "pointer", fontFamily: "inherit", boxShadow: "0 4px 14px rgba(109,40,217,.3)" }}>Submit a Project</button>
-          <button style={{ padding: "12px 26px", borderRadius: 99, border: `1.5px solid ${C.border}`, background: C.white, color: C.textSub, fontSize: 14, fontWeight: 600, cursor: "pointer", fontFamily: "inherit" }}>Support a Project</button>
+          <a href="https://gofund.me/839bac11" target="_blank" rel="noopener noreferrer" style={{ padding: "12px 26px", borderRadius: 99, border: `1.5px solid ${C.border}`, background: C.white, color: C.textSub, fontSize: 14, fontWeight: 600, cursor: "pointer", fontFamily: "inherit", textDecoration: "none" }}>💚 Support a Project</a>
         </div>
       </div>
 
