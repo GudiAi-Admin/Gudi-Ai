@@ -304,7 +304,7 @@ function ProjectCard({ project, rank, expanded, onToggle, onVote, onSupportClick
             </div>
           </div>
 
-          <a href="https://gofund.me/839bac11" target="_blank" rel="noopener noreferrer" style={{
+          <a href="https://www.gofundme.com/f/help-launch-gudi-ai-ai-for-good?attribution_id=sl:1add4975-83e9-442d-a84a-9736f4f4744e&lang=en_US&ts=1776608446&utm_campaign=fp_sharesheet&utm_content=amp17_te-amp20_t1&utm_medium=customer&utm_source=native_options" target="_blank" rel="noopener noreferrer" style={{
   padding: "11px 24px", borderRadius: 99, border: "none",
   background: `linear-gradient(135deg,${C.purple},${C.teal})`,
   color: "#fff", fontSize: 14, fontWeight: 700, cursor: "pointer", fontFamily: "inherit",
@@ -351,7 +351,7 @@ function ProjectsView({ projects, onVote, onSubmit }) {
         </p>
         <div style={{ display: "flex", gap: 10, justifyContent: "center", flexWrap: "wrap" }}>
           <button onClick={onSubmit} style={{ padding: "12px 26px", borderRadius: 99, border: "none", background: `linear-gradient(135deg,${C.purple},${C.teal})`, color: "#fff", fontSize: 14, fontWeight: 700, cursor: "pointer", fontFamily: "inherit", boxShadow: "0 4px 14px rgba(109,40,217,.3)" }}>Submit a Project</button>
-          <a href="https://gofund.me/839bac11" target="_blank" rel="noopener noreferrer" style={{ padding: "12px 26px", borderRadius: 99, border: `1.5px solid ${C.border}`, background: C.white, color: C.textSub, fontSize: 14, fontWeight: 600, cursor: "pointer", fontFamily: "inherit", textDecoration: "none" }}>💚 Support a Project</a>
+          <a href="https://www.gofundme.com/f/help-launch-gudi-ai-ai-for-good?attribution_id=sl:1add4975-83e9-442d-a84a-9736f4f4744e&lang=en_US&ts=1776608446&utm_campaign=fp_sharesheet&utm_content=amp17_te-amp20_t1&utm_medium=customer&utm_source=native_options" target="_blank" rel="noopener noreferrer" style={{ padding: "12px 26px", borderRadius: 99, border: `1.5px solid ${C.border}`, background: C.white, color: C.textSub, fontSize: 14, fontWeight: 600, cursor: "pointer", fontFamily: "inherit", textDecoration: "none" }}>💚 Support a Project</a>
         </div>
       </div>
 
