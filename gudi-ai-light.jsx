@@ -83,8 +83,7 @@ function Nav({ view, setView, onSubmit }) {
   return (
     <nav style={{ background: C.white, borderBottom: `1px solid ${C.border}`, padding: "0 32px", height: 60, display: "flex", alignItems: "center", justifyContent: "space-between", position: "sticky", top: 0, zIndex: 50 }}>
       <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
-        <span style={{ fontSize: 26 }}>🧠</span>
-        <span style={{ fontFamily: "'DM Serif Display',serif", fontSize: 20, background: `linear-gradient(135deg,${C.purple},${C.teal})`, WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", fontWeight: 400 }}>Gudi AI</span>
+        <img src="/Logo 2.png" alt="Gudi AI" style={{ height: 36, width: "auto" }} />
       </div>
       <div style={{ display: "flex", gap: 6 }}>
         {[["projects","Browse Projects"],["dashboard","Impact Dashboard"]].map(([v,label]) => (
