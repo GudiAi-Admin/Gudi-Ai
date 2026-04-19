@@ -1,0 +1,17 @@
+{
+  "name": "gudi-ai",
+  "version": "1.0.0",
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "recharts": "^2.8.0"
+  },
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build"
+  },
+  "devDependencies": {
+    "vite": "^4.4.0",
+    "@vitejs/plugin-react": "^4.0.0"
+  }
+}
