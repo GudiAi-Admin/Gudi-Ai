@@ -83,7 +83,7 @@ function Nav({ view, setView, onSubmit }) {
   return (
     <nav style={{ background: C.white, borderBottom: `1px solid ${C.border}`, padding: "0 32px", height: 60, display: "flex", alignItems: "center", justifyContent: "space-between", position: "sticky", top: 0, zIndex: 50 }}>
       <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
-        <img src="/Logo 1 - SC.png" alt="Gudi AI" style={{ height: 36, width: "auto" }} />
+        <img src="/Logo1.png" alt="Gudi AI" style={{ height: 36, width: "auto" }} />
       </div>
       <div style={{ display: "flex", gap: 6 }}>
         {[["projects","Browse Projects"],["dashboard","Impact Dashboard"]].map(([v,label]) => (
