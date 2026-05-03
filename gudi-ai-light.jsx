@@ -82,12 +82,12 @@ function VoteBtn({ votes, voted, onClick }) {
 function Nav({ view, setView, onSubmit }) {
   return (
     <nav style={{ background: C.white, borderBottom: `1px solid ${C.border}`, padding: "0 32px", height: 60, display: "flex", alignItems: "center", justifyContent: "space-between", position: "sticky", top: 0, zIndex: 50 }}>
-     <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
-  <span style={{ fontSize: 26 }}>🧠</span>
-  <span style={{ fontFamily: "'DM Serif Display',serif", fontSize: 20, background: `linear-gradient(135deg,${C.purple},${C.teal})`, WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", fontWeight: 400 }}>Gudi AI</span>
-</div>
+      <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
+        <span style={{ fontSize: 26 }}>🧠</span>
+        <span style={{ fontFamily: "'DM Serif Display',serif", fontSize: 20, background: `linear-gradient(135deg,${C.purple},${C.teal})`, WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", fontWeight: 400 }}>Gudi AI</span>
+      </div>
       <div style={{ display: "flex", gap: 6 }}>
-        {[["projects","Browse Projects"],["dashboard","Impact Dashboard"]].map(([v,label]) => (
+        {[["projects","Browse Projects"],["dashboard","Impact Dashboard"],["about","About"]].map(([v,label]) => (
           <button key={v} onClick={() => setView(v)} style={{
             padding: "7px 16px", borderRadius: 99, fontSize: 13, fontWeight: 600, cursor: "pointer", fontFamily: "inherit",
             background: view === v ? C.purpleLight : "transparent",
@@ -304,12 +304,12 @@ function ProjectCard({ project, rank, expanded, onToggle, onVote, onSupportClick
             </div>
           </div>
 
-          <a href="https://www.gofundme.com/f/help-launch-gudi-ai-ai-for-good?attribution_id=sl:1add4975-83e9-442d-a84a-9736f4f4744e&lang=en_US&ts=1776608446&utm_campaign=fp_sharesheet&utm_content=amp17_te-amp20_t1&utm_medium=customer&utm_source=native_options" target="_blank" rel="noopener noreferrer" style={{
-  padding: "11px 24px", borderRadius: 99, border: "none",
-  background: `linear-gradient(135deg,${C.purple},${C.teal})`,
-  color: "#fff", fontSize: 14, fontWeight: 700, cursor: "pointer", fontFamily: "inherit",
-  boxShadow: "0 4px 14px rgba(109,40,217,.25)", textDecoration: "none", display: "inline-block"
-}}>💚 Support This Project</a>
+          <button onClick={onSupportClick} style={{
+            padding: "11px 24px", borderRadius: 99, border: "none",
+            background: `linear-gradient(135deg,${C.purple},${C.teal})`,
+            color: "#fff", fontSize: 14, fontWeight: 700, cursor: "pointer", fontFamily: "inherit",
+            boxShadow: "0 4px 14px rgba(109,40,217,.25)",
+          }}>💚 Support This Project</button>
         </div>
       )}
     </div>
@@ -351,7 +351,7 @@ function ProjectsView({ projects, onVote, onSubmit }) {
         </p>
         <div style={{ display: "flex", gap: 10, justifyContent: "center", flexWrap: "wrap" }}>
           <button onClick={onSubmit} style={{ padding: "12px 26px", borderRadius: 99, border: "none", background: `linear-gradient(135deg,${C.purple},${C.teal})`, color: "#fff", fontSize: 14, fontWeight: 700, cursor: "pointer", fontFamily: "inherit", boxShadow: "0 4px 14px rgba(109,40,217,.3)" }}>Submit a Project</button>
-          <a href="https://www.gofundme.com/f/help-launch-gudi-ai-ai-for-good?attribution_id=sl:1add4975-83e9-442d-a84a-9736f4f4744e&lang=en_US&ts=1776608446&utm_campaign=fp_sharesheet&utm_content=amp17_te-amp20_t1&utm_medium=customer&utm_source=native_options" target="_blank" rel="noopener noreferrer" style={{ padding: "12px 26px", borderRadius: 99, border: `1.5px solid ${C.border}`, background: C.white, color: C.textSub, fontSize: 14, fontWeight: 600, cursor: "pointer", fontFamily: "inherit", textDecoration: "none" }}>💚 Support a Project</a>
+          <button style={{ padding: "12px 26px", borderRadius: 99, border: `1.5px solid ${C.border}`, background: C.white, color: C.textSub, fontSize: 14, fontWeight: 600, cursor: "pointer", fontFamily: "inherit" }}>Support a Project</button>
         </div>
       </div>
 
@@ -547,6 +547,125 @@ function Dashboard({ projects }) {
   );
 }
 
+// ── ABOUT VIEW ───────────────────────────────────────────────
+function AboutView({ onSubmit, onDonate }) {
+  const LOGO = "https://raw.githubusercontent.com/GudiAi-Admin/Gudi-Ai/main/src/Logo.png";
+
+  const values = [
+    { icon: "🌍", title: "Human Good First", desc: "Every project on Gudi AI is evaluated by one standard: does it make life better for people, communities, and the planet?" },
+    { icon: "🔍", title: "Radical Transparency", desc: "We track and publish the real impact of every supported project. Donors see exactly where their contributions go." },
+    { icon: "🤝", title: "Community Driven", desc: "The community decides what gets built and supported. Submit ideas, vote on what matters, and watch them come to life." },
+    { icon: "⚖️", title: "Equitable Access", desc: "AI's benefits should reach everyone — not just those who can afford it. We prioritize underserved communities." },
+  ];
+
+  return (
+    <div style={{ maxWidth: 900, margin: "0 auto", padding: "40px 24px 80px", animation: "fadeIn .4s ease" }}>
+
+      {/* Hero */}
+      <div style={{ textAlign: "center", marginBottom: 64 }}>
+        <img src={LOGO} alt="Gudi AI" style={{ height: 80, width: "auto", marginBottom: 24 }} onError={e => { e.target.style.display = "none"; }} />
+        <h1 style={{ fontFamily: "'DM Serif Display',serif", fontSize: "clamp(28px,5vw,42px)", color: C.text, margin: "0 0 16px", lineHeight: 1.2 }}>
+          AI should make the world better,<br />not just faster.
+        </h1>
+        <p style={{ fontSize: 16, color: C.textSub, maxWidth: 560, margin: "0 auto 28px", lineHeight: 1.8 }}>
+          Gudi AI is a community platform dedicated to spotlighting, funding, and building AI projects that create real impact for people, communities, and the planet.
+        </p>
+        <div style={{ display: "flex", gap: 12, justifyContent: "center", flexWrap: "wrap" }}>
+          <button onClick={onSubmit} style={{ padding: "12px 26px", borderRadius: 99, border: "none", background: `linear-gradient(135deg,${C.purple},${C.teal})`, color: "#fff", fontSize: 14, fontWeight: 700, cursor: "pointer", fontFamily: "inherit" }}>Submit a Project</button>
+          <a href="https://gofund.me/839bac11" target="_blank" rel="noopener noreferrer" style={{ padding: "12px 26px", borderRadius: 99, border: `1.5px solid ${C.border}`, background: C.white, color: C.textSub, fontSize: 14, fontWeight: 600, cursor: "pointer", fontFamily: "inherit", textDecoration: "none" }}>💚 Support the Mission</a>
+        </div>
+      </div>
+
+      {/* Founder Story */}
+      <div style={{ background: C.white, borderRadius: 20, border: `1px solid ${C.border}`, padding: "40px", marginBottom: 32, boxShadow: "0 1px 4px rgba(0,0,0,.04)" }}>
+        <div style={{ display: "flex", alignItems: "flex-start", gap: 24, flexWrap: "wrap" }}>
+          <div style={{ flex: 1, minWidth: 260 }}>
+            <span style={{ display: "inline-block", padding: "3px 12px", borderRadius: 99, background: C.purpleLight, color: C.purple, fontSize: 11, fontWeight: 700, letterSpacing: "0.08em", textTransform: "uppercase", marginBottom: 14 }}>Our Founder</span>
+            <h2 style={{ fontFamily: "'DM Serif Display',serif", fontSize: 26, color: C.text, margin: "0 0 16px" }}>Built by someone who believes technology should serve humanity.</h2>
+            <p style={{ fontSize: 14, color: C.textSub, lineHeight: 1.8, margin: "0 0 12px" }}>
+              Shanise is a mom, a veteran, and a professional with deep experience scaling operations across regulated industries. She spent years watching AI transform how companies work — making processes faster, leaner, and more profitable.
+            </p>
+            <p style={{ fontSize: 14, color: C.textSub, lineHeight: 1.8, margin: "0 0 12px" }}>
+              But something kept nagging at her: <em style={{ color: C.text }}>"What about people? What about communities? What about the planet?"</em>
+            </p>
+            <p style={{ fontSize: 14, color: C.textSub, lineHeight: 1.8, margin: 0 }}>
+              Gudi AI was born from that question. A platform where AI's power is pointed not at profit margins, but at the things that actually matter — helping families, healing communities, and protecting our world.
+            </p>
+          </div>
+          <div style={{ background: C.bg, borderRadius: 16, padding: "24px", minWidth: 200, border: `1px solid ${C.border}` }}>
+            <div style={{ fontSize: 32, marginBottom: 8 }}>🎖️</div>
+            <p style={{ margin: "0 0 16px", fontSize: 13, fontWeight: 700, color: C.text }}>Shanise Gilmore</p>
+            <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
+              {["U.S. Veteran", "Mom & Community Builder", "Process & Operations Expert", "AI for Good Advocate"].map(t => (
+                <div key={t} style={{ display: "flex", alignItems: "center", gap: 8, fontSize: 12, color: C.textSub }}>
+                  <div style={{ width: 6, height: 6, borderRadius: "50%", background: C.purple, flexShrink: 0 }} />
+                  {t}
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Values */}
+      <div style={{ marginBottom: 32 }}>
+        <h2 style={{ fontFamily: "'DM Serif Display',serif", fontSize: 24, color: C.text, margin: "0 0 20px" }}>What We Stand For</h2>
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))", gap: 16 }}>
+          {values.map(v => (
+            <div key={v.title} style={{ background: C.white, borderRadius: 14, padding: "24px", border: `1px solid ${C.border}`, boxShadow: "0 1px 4px rgba(0,0,0,.04)" }}>
+              <div style={{ fontSize: 28, marginBottom: 10 }}>{v.icon}</div>
+              <h3 style={{ margin: "0 0 8px", fontSize: 15, fontWeight: 700, color: C.text }}>{v.title}</h3>
+              <p style={{ margin: 0, fontSize: 13, color: C.textSub, lineHeight: 1.6 }}>{v.desc}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* How it works */}
+      <div style={{ background: C.white, borderRadius: 20, border: `1px solid ${C.border}`, padding: "40px", marginBottom: 32 }}>
+        <h2 style={{ fontFamily: "'DM Serif Display',serif", fontSize: 24, color: C.text, margin: "0 0 24px" }}>How Gudi AI Works</h2>
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(180px, 1fr))", gap: 20 }}>
+          {[
+            { step: "01", icon: "💡", title: "Submit", desc: "Anyone can submit an AI for good project idea — big or small." },
+            { step: "02", icon: "🗳️", title: "Vote", desc: "The community votes on what matters most. Top ideas rise to the top." },
+            { step: "03", icon: "💚", title: "Support", desc: "Donate to projects you believe in. Every dollar goes to the mission." },
+            { step: "04", icon: "📊", title: "Track Impact", desc: "See real outcomes. Transparency is built into everything we do." },
+          ].map(s => (
+            <div key={s.step} style={{ textAlign: "center" }}>
+              <div style={{ fontSize: 11, fontWeight: 700, color: C.purpleMid, letterSpacing: "0.1em", marginBottom: 8 }}>{s.step}</div>
+              <div style={{ fontSize: 28, marginBottom: 8 }}>{s.icon}</div>
+              <h3 style={{ margin: "0 0 6px", fontSize: 15, fontWeight: 700, color: C.text }}>{s.title}</h3>
+              <p style={{ margin: 0, fontSize: 13, color: C.textSub, lineHeight: 1.6 }}>{s.desc}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* Connect */}
+      <div style={{ background: `linear-gradient(135deg, ${C.purpleLight}, ${C.tealLight})`, borderRadius: 20, padding: "40px", textAlign: "center", border: `1px solid ${C.border}` }}>
+        <h2 style={{ fontFamily: "'DM Serif Display',serif", fontSize: 24, color: C.text, margin: "0 0 8px" }}>Join the Mission</h2>
+        <p style={{ fontSize: 14, color: C.textSub, margin: "0 0 24px" }}>Connect with us and help build AI for good.</p>
+        <div style={{ display: "flex", gap: 12, justifyContent: "center", flexWrap: "wrap", marginBottom: 24 }}>
+          {[
+            { label: "📸 Instagram", href: "https://instagram.com/gudiai_" },
+            { label: "💼 LinkedIn", href: "https://www.linkedin.com/company/gudi-ai" },
+            { label: "💚 GoFundMe", href: "https://gofund.me/839bac11" },
+          ].map(s => (
+            <a key={s.label} href={s.href} target="_blank" rel="noopener noreferrer" style={{
+              padding: "10px 20px", borderRadius: 99, border: `1.5px solid ${C.border}`,
+              background: C.white, color: C.text, fontSize: 13, fontWeight: 600,
+              textDecoration: "none", fontFamily: "inherit",
+            }}>{s.label}</a>
+          ))}
+        </div>
+        <p style={{ margin: 0, fontSize: 13, color: C.textSub }}>
+          📧 <a href="mailto:gudiai.admin@gmail.com" style={{ color: C.purple, textDecoration: "none", fontWeight: 600 }}>gudiai.admin@gmail.com</a>
+        </p>
+      </div>
+    </div>
+  );
+}
+
 // ── APP ROOT ──────────────────────────────────────────────────
 export default function App() {
   const [projects, setProjects] = useState(INITIAL_PROJECTS);
@@ -592,6 +711,7 @@ export default function App() {
 
       {view === "projects" && <ProjectsView projects={projects} onVote={handleVote} onSubmit={() => setShowSubmit(true)} />}
       {view === "dashboard" && <Dashboard projects={projects} />}
+      {view === "about" && <AboutView onSubmit={() => setShowSubmit(true)} onDonate={() => window.open("https://gofund.me/839bac11", "_blank")} />
 
       <div style={{ borderTop: `1px solid ${C.border}`, padding: "20px 24px", textAlign: "center", fontSize: 13, color: C.textSub, background: C.white }}>
         Built with 💜 by Gudi AI — AI for the good of people, communities & the planet.
