@@ -711,7 +711,7 @@ export default function App() {
 
       {view === "projects" && <ProjectsView projects={projects} onVote={handleVote} onSubmit={() => setShowSubmit(true)} />}
       {view === "dashboard" && <Dashboard projects={projects} />}
-      {view === "about" && <AboutView onSubmit={() => setShowSubmit(true)} onDonate={() => window.open("https://gofund.me/839bac11", "_blank")} />
+      {view === "about" && <AboutView onSubmit={() => setShowSubmit(true)} onDonate={() => window.open("https://gofund.me/839bac11", "_blank")} />}
 
       <div style={{ borderTop: `1px solid ${C.border}`, padding: "20px 24px", textAlign: "center", fontSize: 13, color: C.textSub, background: C.white }}>
         Built with 💜 by Gudi AI — AI for the good of people, communities & the planet.
